@@ -43,11 +43,11 @@ For Milestone 5, I incorporated the essential feature of bricks into the game. I
 - Brick Width: Width of the game window divided by the number of brick columns
 - Brick Height: 20 pixels
 - Brick Colors: 
-  - **${\color{red}Red}$
-  - **${\color{orange}Orange}$
-  - **${\color{gold}Yellow}$
-  - **${\color{green}Green}$
-  - **${\color{cyan}Cyan}$
+  - ${\color{red}Red}$
+  - ${\color{orange}Orange}$
+  - ${\color{gold}Yellow}$
+  - ${\color{green}Green}$
+  - ${\color{cyan}Cyan}$
 
 Below is an illustration of the multi-colored bricks integrated into the game window:
 
