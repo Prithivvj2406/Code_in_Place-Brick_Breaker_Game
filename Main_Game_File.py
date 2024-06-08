@@ -3,17 +3,21 @@ import tkinter as tk
 # Constants
 WIDTH = 800
 HEIGHT = 600
-# New Constants
 PADDLE_WIDTH = 100
 PADDLE_HEIGHT = 10
 PADDLE_Y_OFFSET = 30
+# New Constants
+BRICK_ROWS = 5
+BRICK_COLS = 10
+BRICK_WIDTH = WIDTH // BRICK_COLS
+BRICK_HEIGHT = 20
+BRICK_COLORS = ["red", "orange", "yellow", "green", "cyan"]
 
 
-# Milestone 1
-# Function to create the initial Tkinter window
+# Milestone 1: Create the Start Screen
 def create_tkinter_window():
     root = tk.Tk()  # Create the main application window
-    root.title("Breakout Game")  # Set the title of the window
+    root.title("Brick Breaker Game")  # Set the title of the window
     root.geometry(f"{WIDTH}x{HEIGHT}")  # Position the window
 
     # Add an instruction label to the center of the window
@@ -27,33 +31,51 @@ def create_tkinter_window():
     root.mainloop()
 
 
-# Milestone_3
+# Milestone 3: Create the Game Window
 def create_game_window():
-    global canvas  # Declare canvas as a global variable
+    global game_canvas  # Declare canvas as a global variable
     root = tk.Tk()  # Create the main game window
-    root.title("Breakout Game")
+    root.title("Brick Breaker Game")
     root.geometry(f"{WIDTH}x{HEIGHT}")  # Position window
 
-    canvas = tk.Canvas(root, width=WIDTH, height=HEIGHT, bd=0, highlightthickness=0)
-    canvas.pack()
+    game_canvas = tk.Canvas(root, width=WIDTH, height=HEIGHT, bd=0, highlightthickness=0)
+    game_canvas.pack()
 
-    create_paddle(canvas)
+    create_paddle(game_canvas)
+    create_bricks(game_canvas)
 
     # Run the Tkinter event loop for the game window
     root.mainloop()
 
 
-# Milestone_4
+# Milestone_4: Create the Paddle
 def create_paddle(canvas_element):
     global paddle  # Declare paddle as a global variable
     paddle = canvas_element.create_rectangle(WIDTH / 2 - PADDLE_WIDTH / 2, HEIGHT - PADDLE_HEIGHT - PADDLE_Y_OFFSET,
                                              WIDTH / 2 + PADDLE_WIDTH / 2, HEIGHT - PADDLE_Y_OFFSET, fill='blue')
 
 
+# Milestone_5 :  Create the multicolored Bricks
+def create_bricks(canvas_element):
+    global bricks
+    bricks = []
+    for i in range(BRICK_ROWS):
+        for j in range(BRICK_COLS):
+            x1 = j * BRICK_WIDTH
+            y1 = i * BRICK_HEIGHT
+            x2 = x1 + BRICK_WIDTH
+            y2 = y1 + BRICK_HEIGHT
+            color = BRICK_COLORS[i // (BRICK_ROWS // len(BRICK_COLORS))]
+
+            # Create brick on canvas
+            brick = canvas_element.create_rectangle(x1, y1, x2, y2, fill=color, outline='black')
+            bricks.append((brick, color))  # Store brick and its color
+
+
 # Main function to start the game setup
 def main():
     create_tkinter_window()  # Milestone 1 & 2
-    create_game_window()  # Milestone 3 & 4
+    create_game_window()  # Milestone 3 to 5
 
 
 # Entry point of the program
