@@ -12,13 +12,13 @@ I have decided to create a simplified version of the Brick Breaker game, which w
 
 The first milestone was to create the game window itself. I decided to include a startup screen for the game after the file is run. I created a canvas window with a size of 800x600, displaying the message "Game Startup Screen". Below is an example of how it would look:
 
-![Milestone_1](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/9f7f1e20-b149-44d8-a45a-f9dfd3e5d832)
+![Milestone_1](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/e3f0da00-f859-4684-9475-61b171fb5402)
 
 ### Milestone 2: Implementing Mouse Click Functionality
 
 In Milestone 2, I added the functionality to initiate the game upon a mouse click. This prevents the game from starting immediately upon running the file, allowing players/users to prepare. The message displayed in the game window now prompts the player/user to click anywhere on the screen to start the game.
 
-![Milestone_2](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/9eaae645-e4f6-498b-928a-0b61265622da)
+![Milestone_2](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/b649b72a-52cd-453d-9d87-4c31c826f0aa)
 
 ### Milestone 3: Creating the Main Game Window
 
@@ -33,7 +33,7 @@ To fulfill the game's requirement of having a paddle, I introduced a blue rectan
 
 Below is an illustration of the paddle in the game:
 
-![Milestone_4](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/0ad5e803-856c-4c4b-a7b8-685e7c7930bd)
+![Milestone_4](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/806e4921-891d-4906-9907-f9385a6eaa09)
 
 ### Milestone 5: Adding Multi-Colored Bricks to the Game Window
 
@@ -51,7 +51,7 @@ For Milestone 5, I incorporated the essential feature of bricks into the game. I
 
 Below is an illustration of the multi-colored bricks integrated into the game window:
 
-![Milestone_5](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/066fb173-445e-4cc5-85fb-4fd477232942)
+![Milestone_5](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/d840d948-60d3-4ced-9bc4-01326a82c3e5)
 
 ### Milestone 6: Implementing Ball Spawning Functionality
 
@@ -59,7 +59,7 @@ In Milestone 6, I implemented the functionality to spawn the game ball at the ce
 
 Below is an illustration of the spawned ball:
 
-![Milestone_6](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/9e512d7d-e5ce-41e9-8cba-37d8ed5dbe59)
+![Milestone_6](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/cac81858-1b42-4929-afce-76daafe5072d)
 
 ### Milestone 7: Adding Paddle Movement Functionality
 
