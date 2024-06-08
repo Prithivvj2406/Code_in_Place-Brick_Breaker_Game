@@ -107,6 +107,8 @@ Below is a visualization of the score tracking feature:
 
 In Milestone 12, I implemented code to check if the player has won the game by destroying all the bricks. If all bricks are destroyed, a message displaying the player's score is shown on the screen.
 
+https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/dbf47fe0-3c50-4055-b8ff-4565d7dc4a5b
+
 Please note that the score tracking continues even if the player loses the game.
 
 Below is an illustration of the lose condition with the score displayed:
