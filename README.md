@@ -43,11 +43,11 @@ For Milestone 5, I incorporated the essential feature of bricks into the game. I
 - Brick Width: Width of the game window divided by the number of brick columns
 - Brick Height: 20 pixels
 - Brick Colors: 
-  - ${\color{red}Red}$
-  - ${\color{orange}Orange}$
-  - ${\color{yellow}Yellow}$
-  - ${\color{green}Green}$
-  - ${\color{cyan}Cyan}$
+  - **${\color{red}Red}$
+  - **${\color{orange}Orange}$
+  - **${\color{gold}Yellow}$
+  - **${\color{green}Green}$
+  - **${\color{cyan}Cyan}$
 
 Below is an illustration of the multi-colored bricks integrated into the game window:
 
@@ -109,6 +109,6 @@ In Milestone 12, I implemented code to check if the player has won the game by d
 
 Please note that the score tracking continues even if the player loses the game.
 
-Below is an illustration of the win condition:
+Below is an illustration of the lose condition with the score displayed:
 
 ![Milestone_12_2](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/6c45adc7-aee5-4e15-91c8-6284f262456c)
