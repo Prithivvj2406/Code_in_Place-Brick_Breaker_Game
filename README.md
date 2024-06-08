@@ -103,14 +103,18 @@ Below is a visualization of the score tracking feature:
 
 ![Milestone_11](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/bb731fb7-5160-4759-a1de-3653d9af268a)
 
-### Milestone 12: Adding Win Condition
+### Milestone 12: Implementing Win Condition
 
-In Milestone 12, I implemented code to check if the player has won the game by destroying all the bricks. If all bricks are destroyed, a message displaying the player's score is shown on the screen.
+In Milestone 12, I added code to determine if the player has won the game by destroying all the bricks. Upon destroying all bricks, a win message is displayed on the screen along with the player's score.
 
-https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/dbf47fe0-3c50-4055-b8ff-4565d7dc4a5b
+Below are illustrations of the win condition with the score displayed:
 
-Please note that the score tracking continues even if the player loses the game.
+![Milestone_12_1_Win_Message](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/ee79b39d-7bac-4742-88c6-f9b8fde5a694)
 
-Below is an illustration of the lose condition with the score displayed:
+Please note that the score tracking continues even if the player loses the game. Below is an illustration of the lose condition with the score displayed:
 
-![Milestone_12_2](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/6c45adc7-aee5-4e15-91c8-6284f262456c)
+![Milestone_12_2_Lose_Message](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/6c45adc7-aee5-4e15-91c8-6284f262456c)
+
+You can watch the gameplay video demonstrating the win condition of the complete game through the following link:
+
+[Gameplay Video - Win Condition](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/dbf47fe0-3c50-4055-b8ff-4565d7dc4a5b)
