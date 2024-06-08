@@ -1,4 +1,5 @@
 import tkinter as tk
+import random
 
 # Constants
 WIDTH = 800
@@ -6,12 +7,13 @@ HEIGHT = 600
 PADDLE_WIDTH = 100
 PADDLE_HEIGHT = 10
 PADDLE_Y_OFFSET = 30
-# New Constants
 BRICK_ROWS = 5
 BRICK_COLS = 10
 BRICK_WIDTH = WIDTH // BRICK_COLS
 BRICK_HEIGHT = 20
 BRICK_COLORS = ["red", "orange", "yellow", "green", "cyan"]
+# New Constants
+BALL_SIZE = 20
 
 
 # Milestone 1: Create the Start Screen
@@ -43,6 +45,7 @@ def create_game_window():
 
     create_paddle(game_canvas)
     create_bricks(game_canvas)
+    spawn_ball(game_canvas)
 
     # Run the Tkinter event loop for the game window
     root.mainloop()
@@ -72,10 +75,17 @@ def create_bricks(canvas_element):
             bricks.append((brick, color))  # Store brick and its color
 
 
+# Milestone_6 : Create the ball
+def spawn_ball(canvas_element):
+    ball = canvas_element.create_oval(WIDTH / 2 - BALL_SIZE / 2, HEIGHT / 2 - BALL_SIZE / 2,
+                                      WIDTH / 2 + BALL_SIZE / 2, HEIGHT / 2 + BALL_SIZE / 2,
+                                      fill='red')  # Create the ball
+
+
 # Main function to start the game setup
 def main():
     create_tkinter_window()  # Milestone 1 & 2
-    create_game_window()  # Milestone 3 to 5
+    create_game_window()  # Milestone 3 to 6
 
 
 # Entry point of the program
