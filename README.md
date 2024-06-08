@@ -35,3 +35,35 @@ Below is an illustration of the paddle in the game:
 
 ![Milestone_4](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/0ad5e803-856c-4c4b-a7b8-685e7c7930bd)
 
+### Milestone 5: Adding Multi-Colored Bricks to the Game Window
+
+For Milestone 5, I incorporated the essential feature of bricks into the game. I created a function that adds multiple rows of bricks of different colors. The configuration for the bricks is as follows:
+- Number of Brick Rows: 5
+- Number of Brick Columns: 10
+- Brick Width: Width of the game window divided by the number of brick columns
+- Brick Height: 20 pixels
+- Brick Colors: 
+  - ${\color{red}Red}$
+  - ${\color{orange}Orange}$
+  - ${\color{yellow}Yellow}$
+  - ${\color{green}Green}$
+  - ${\color{cyan}Cyan}$
+
+Below is an illustration of the multi-colored bricks integrated into the game window:
+
+![Milestone_5](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/066fb173-445e-4cc5-85fb-4fd477232942)
+
+### Milestone 6: Implementing Ball Spawning Functionality
+
+In Milestone 6, I implemented the functionality to spawn the game ball at the center of the screen. The ball has a radius of 20 units.
+
+Below is an illustration of the spawned ball:
+
+![Milestone_6](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/9e512d7d-e5ce-41e9-8cba-37d8ed5dbe59)
+
+### Milestone 7: Adding Paddle Movement Functionality
+
+For Milestone 7, I added functionality to control the paddle movement using the mouse pointer location. The paddle's position is determined by the movement of the mouse pointer within the game window. Below is a GIF demonstrating how the paddle movement works based on the mouse movement:
+
+![Milestone_7](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/76a72323-2aa3-4db4-8179-ab27fa60a604)
+
