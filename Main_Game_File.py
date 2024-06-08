@@ -12,7 +12,6 @@ BRICK_COLS = 10
 BRICK_WIDTH = WIDTH // BRICK_COLS
 BRICK_HEIGHT = 20
 BRICK_COLORS = ["red", "orange", "yellow", "green", "cyan"]
-# New Constants
 BALL_SPEED = 4
 BALL_SIZE = 20
 
@@ -123,6 +122,8 @@ def ball_dynamics(canvas_element, root):
 
     detect_paddle_collision(canvas_element)
 
+    detect_brick_collision(bricks, canvas_element)
+
     root.after(20, ball_dynamics, canvas_element, root)
 
 
@@ -136,10 +137,20 @@ def detect_paddle_collision(canvas_element):
                 change_y = -change_y
 
 
+# Milestone_10_1: Detection Collisions with Bricks
+def detect_brick_collision(bricks, canvas_element):
+    global change_y
+    ball_pos = canvas_element.coords(ball)
+    for brick, color in bricks:
+        if canvas_element.find_overlapping(*ball_pos) and brick in canvas_element.find_overlapping(*ball_pos):
+            change_y = -change_y
+            return
+
+
 # Main function to start the game setup
 def main():
     create_tkinter_window()  # Milestone 1 & 2
-    create_game_window()  # Milestone 3 to 9
+    create_game_window()  # Milestone 3 to 10.1
 
 
 # Entry point of the program
