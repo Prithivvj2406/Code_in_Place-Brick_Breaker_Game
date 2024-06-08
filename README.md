@@ -67,3 +67,48 @@ For Milestone 7, I added functionality to control the paddle movement using the 
 
 ![Milestone_7](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/76a72323-2aa3-4db4-8179-ab27fa60a604)
 
+### Milestone 8: Adding Ball Movement Dynamics
+
+In Milestone 8, I implemented the ball dynamics for bouncing off walls. If the ball hits the bottom edge of the screen, the message "Game Over" is displayed.
+
+Below is an illustration of the ball movement dynamics:
+
+![Milestone_8](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/4e314263-9158-47e2-ac81-63d3e3b154ef)
+
+### Milestone 9: Fine-tuning Ball Movement Dynamics
+
+For Milestone 9, I further refined the ball movement dynamics, including bouncing off the paddle, walls, and triggering game over when the ball hits the lower edge.
+
+Below is a demonstration of the refined ball movement dynamics:
+
+![Milestone_9](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/ea8ccdfc-27fa-4bc8-a16b-c5e23a882f63)
+
+### Milestone 10.1: Implementing Collision Detection with Bricks
+
+In this milestone, I created a function to handle collision detection between the bricks and the ball. The function determines the overlap between the individual canvas functions of the bricks and initiates a bounce.
+
+Below is an illustration of the collision detection with bricks:
+
+![Milestone_10_1](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/51421aed-da5b-4c41-90b2-4ae474999e8f)
+
+### Milestone 10.2: Nesting Collision Detection Functions
+
+Milestone 10.2 involved nesting the collision detection functions for bricks and the paddle into one main collision function, enhancing code modularity.
+
+### Milestone 11: Implementing Score Tracking Functionality
+
+For Milestone 11, I created a function to track the player's score. Points are awarded based on the color of the broken bricks, and a bubble displaying the points appears on the bottom right of the screen.
+
+Below is a visualization of the score tracking feature:
+
+![Milestone_11](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/bb731fb7-5160-4759-a1de-3653d9af268a)
+
+### Milestone 12: Adding Win Condition
+
+In Milestone 12, I implemented code to check if the player has won the game by destroying all the bricks. If all bricks are destroyed, a message displaying the player's score is shown on the screen.
+
+Please note that the score tracking continues even if the player loses the game.
+
+Below is an illustration of the win condition:
+
+![Milestone_12_2](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/6c45adc7-aee5-4e15-91c8-6284f262456c)
