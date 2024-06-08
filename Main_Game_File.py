@@ -14,6 +14,9 @@ BRICK_HEIGHT = 20
 BRICK_COLORS = ["red", "orange", "yellow", "green", "cyan"]
 BALL_SPEED = 4
 BALL_SIZE = 20
+# New Constants
+BRICK_POINTS = [5, 4, 3, 2, 1]
+SCORE = 0
 
 
 # Milestone 1: Create the Start Screen
@@ -71,7 +74,7 @@ def create_bricks(canvas_element):
             y1 = i * BRICK_HEIGHT
             x2 = x1 + BRICK_WIDTH
             y2 = y1 + BRICK_HEIGHT
-            color = BRICK_COLORS[i // (BRICK_ROWS // len(BRICK_COLORS))]
+            color = BRICK_COLORS[i % len(BRICK_COLORS)]  # Corrected this line
 
             # Create brick on canvas
             brick = canvas_element.create_rectangle(x1, y1, x2, y2, fill=color, outline='black')
@@ -118,8 +121,6 @@ def ball_dynamics(canvas_element, root):
         canvas_element.create_text(WIDTH / 2, HEIGHT / 2, text="Game Over", font=('Helvetica', 30), fill='red')
         return
 
-    move_paddle(canvas_element)
-
     detect_collisions(canvas_element)
 
     root.after(20, ball_dynamics, canvas_element, root)
@@ -139,8 +140,37 @@ def detect_brick_collision(bricks, ball_pos, canvas_element):
     global change_y
     for brick, color in bricks:
         if canvas_element.find_overlapping(*ball_pos) and brick in canvas_element.find_overlapping(*ball_pos):
-            change_y = -change_y
+            handle_brick_collision(brick, color, canvas_element)
             return
+
+
+def handle_brick_collision(brick, color, canvas_element):
+    global change_x, change_y, SCORE
+    canvas_element.delete(brick)
+    bricks.remove((brick, color))
+    change_y = -change_y
+    brick_index = BRICK_COLORS.index(color)
+    score_increment = BRICK_POINTS[brick_index]
+    update_score(score_increment, color, canvas_element)
+
+
+# Milestone_11: Score Tracking
+def update_score(score_increment, color, canvas_element):
+    global SCORE
+    bubble_radius = 30
+    bubble_color = color
+    bubble = canvas_element.create_oval(canvas_element.winfo_width() - bubble_radius * 2 - 20,
+                                        canvas_element.winfo_height() - bubble_radius * 2 - 20,
+                                        canvas_element.winfo_width() - 20, canvas_element.winfo_height() - 20,
+                                        fill=bubble_color, outline="")
+    score_text = f"+{score_increment}"
+    score_label = canvas_element.create_text(canvas_element.winfo_width() - bubble_radius - 20,
+                                             canvas_element.winfo_height() - bubble_radius - 20,
+                                             text=score_text, anchor="center", font=('Helvetica', 20, 'bold'),
+                                             fill="white")
+    canvas_element.after(1000, lambda: canvas_element.delete(bubble))
+    canvas_element.after(1000, lambda: canvas_element.delete(score_label))
+    SCORE += score_increment
 
 
 # Milestone_10_2: Nest the two detection function together
@@ -153,10 +183,9 @@ def detect_collisions(canvas_element):
 # Main function to start the game setup
 def main():
     create_tkinter_window()  # Milestone 1 & 2
-    create_game_window()  # Milestone 3 to 10.2
+    create_game_window()  # Milestone 3 to 11
 
 
 # Entry point of the program
 if __name__ == "__main__":
     main()
-    
