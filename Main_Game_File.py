@@ -8,6 +8,7 @@ PADDLE_WIDTH = 100
 PADDLE_HEIGHT = 10
 PADDLE_Y_OFFSET = 30
 
+
 # Milestone 1
 # Function to create the initial Tkinter window
 def create_tkinter_window():
@@ -25,6 +26,7 @@ def create_tkinter_window():
     # Run the Tkinter event loop
     root.mainloop()
 
+
 # Milestone_3
 def create_game_window():
     global canvas  # Declare canvas as a global variable
@@ -32,18 +34,29 @@ def create_game_window():
     root.title("Breakout Game")
     root.geometry(f"{WIDTH}x{HEIGHT}")  # Position window
 
-    # Create the Canvas Variable
     canvas = tk.Canvas(root, width=WIDTH, height=HEIGHT, bd=0, highlightthickness=0)
     canvas.pack()
+
+    create_paddle(canvas)
 
     # Run the Tkinter event loop for the game window
     root.mainloop()
 
+
+# Milestone_4
+def create_paddle(canvas_element):
+    global paddle  # Declare paddle as a global variable
+    paddle = canvas_element.create_rectangle(WIDTH / 2 - PADDLE_WIDTH / 2, HEIGHT - PADDLE_HEIGHT - PADDLE_Y_OFFSET,
+                                             WIDTH / 2 + PADDLE_WIDTH / 2, HEIGHT - PADDLE_Y_OFFSET, fill='blue')
+
+
 # Main function to start the game setup
 def main():
     create_tkinter_window()  # Milestone 1 & 2
-    create_game_window() # Milestone 3
+    create_game_window()  # Milestone 3 & 4
+
 
 # Entry point of the program
 if __name__ == "__main__":
     main()
+    
