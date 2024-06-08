@@ -12,7 +12,6 @@ BRICK_COLS = 10
 BRICK_WIDTH = WIDTH // BRICK_COLS
 BRICK_HEIGHT = 20
 BRICK_COLORS = ["red", "orange", "yellow", "green", "cyan"]
-# New Constants
 BALL_SIZE = 20
 
 
@@ -46,6 +45,7 @@ def create_game_window():
     create_paddle(game_canvas)
     create_bricks(game_canvas)
     spawn_ball(game_canvas)
+    move_paddle(game_canvas)
 
     # Run the Tkinter event loop for the game window
     root.mainloop()
@@ -82,10 +82,25 @@ def spawn_ball(canvas_element):
                                       fill='red')  # Create the ball
 
 
+# Milestone_7: Move the Paddle
+def move_paddle(canvas_element):
+    def on_mouse_move(event):
+        paddle_x = event.x  # Get the x-coordinate of the mouse pointer
+        if paddle_x < PADDLE_WIDTH / 2:
+            paddle_x = PADDLE_WIDTH / 2
+        elif paddle_x > WIDTH - PADDLE_WIDTH / 2:
+            paddle_x = WIDTH - PADDLE_WIDTH / 2
+        canvas_element.coords(paddle, paddle_x - PADDLE_WIDTH / 2, HEIGHT - PADDLE_HEIGHT - PADDLE_Y_OFFSET,
+                              paddle_x + PADDLE_WIDTH / 2, HEIGHT - PADDLE_Y_OFFSET)
+
+    # Bind the mouse movement event to the canvas
+    canvas_element.bind("<Motion>", on_mouse_move)
+
+
 # Main function to start the game setup
 def main():
     create_tkinter_window()  # Milestone 1 & 2
-    create_game_window()  # Milestone 3 to 6
+    create_game_window()  # Milestone 3 to 7
 
 
 # Entry point of the program
