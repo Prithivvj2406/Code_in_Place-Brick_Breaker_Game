@@ -7,14 +7,13 @@ HEIGHT = 600
 PADDLE_WIDTH = 100
 PADDLE_HEIGHT = 10
 PADDLE_Y_OFFSET = 30
-BRICK_ROWS = 5
-BRICK_COLS = 10
+BRICK_ROWS = 1
+BRICK_COLS = 5
 BRICK_WIDTH = WIDTH // BRICK_COLS
 BRICK_HEIGHT = 20
 BRICK_COLORS = ["red", "orange", "yellow", "green", "cyan"]
 BALL_SPEED = 4
 BALL_SIZE = 20
-# New Constants
 BRICK_POINTS = [5, 4, 3, 2, 1]
 SCORE = 0
 
@@ -50,6 +49,10 @@ def create_game_window():
     create_bricks(game_canvas)
     spawn_ball(game_canvas)
     move_paddle(game_canvas)
+
+    global num_bricks
+
+    num_bricks = BRICK_ROWS * BRICK_COLS
 
     ball_dynamics(game_canvas, root)
 
@@ -112,6 +115,9 @@ def ball_dynamics(canvas_element, root):
     canvas_element.move(ball, change_x, change_y)
     ball_pos = canvas_element.coords(ball)
 
+    if not ball_pos:  # Check if ball_pos is empty (MILESTONE_12)
+        return
+
     # Collision detection and handling
     if ball_pos[0] <= 0 or ball_pos[2] >= WIDTH:
         change_x = -change_x
@@ -119,6 +125,9 @@ def ball_dynamics(canvas_element, root):
         change_y = -change_y
     if ball_pos[3] >= HEIGHT:
         canvas_element.create_text(WIDTH / 2, HEIGHT / 2, text="Game Over", font=('Helvetica', 30), fill='red')
+        # MILESTONE_12
+        canvas_element.create_text(WIDTH / 2, HEIGHT / 2 + 50, text=f"Score: {SCORE}", font=('Helvetica', 20),
+                                   fill='red')
         return
 
     detect_collisions(canvas_element)
@@ -137,10 +146,11 @@ def detect_paddle_collision(ball_pos, canvas_element):
 
 # Milestone_10_1: Detection Collisions with Bricks
 def detect_brick_collision(bricks, ball_pos, canvas_element):
-    global change_y
+    global num_bricks
     for brick, color in bricks:
         if canvas_element.find_overlapping(*ball_pos) and brick in canvas_element.find_overlapping(*ball_pos):
             handle_brick_collision(brick, color, canvas_element)
+            num_bricks -= 1
             return
 
 
@@ -152,6 +162,7 @@ def handle_brick_collision(brick, color, canvas_element):
     brick_index = BRICK_COLORS.index(color)
     score_increment = BRICK_POINTS[brick_index]
     update_score(score_increment, color, canvas_element)
+    check_win(canvas_element, SCORE)  # Milestone_12
 
 
 # Milestone_11: Score Tracking
@@ -168,8 +179,7 @@ def update_score(score_increment, color, canvas_element):
                                              canvas_element.winfo_height() - bubble_radius - 20,
                                              text=score_text, anchor="center", font=('Helvetica', 20, 'bold'),
                                              fill="white")
-    canvas_element.after(1000, lambda: canvas_element.delete(bubble))
-    canvas_element.after(1000, lambda: canvas_element.delete(score_label))
+    canvas_element.after(1000, lambda: [canvas_element.delete(item) for item in (bubble, score_label)])
     SCORE += score_increment
 
 
@@ -180,10 +190,19 @@ def detect_collisions(canvas_element):
     detect_brick_collision(bricks, ball_pos, canvas_element)
 
 
+# Milestone_12: Check if Win
+def check_win(canvas_element, score):
+    if num_bricks == 1:
+        canvas_element.delete("all")  # Clear the canvas
+        canvas_element.create_text(WIDTH / 2, HEIGHT / 2, text="You Win!", font=('Helvetica', 30), fill='green')
+        canvas_element.create_text(WIDTH / 2, HEIGHT / 2 + 50, text=f"Score: {score}", font=('Helvetica', 20),
+                                   fill='green')
+
+
 # Main function to start the game setup
 def main():
     create_tkinter_window()  # Milestone 1 & 2
-    create_game_window()  # Milestone 3 to 11
+    create_game_window()  # Milestone 3 to 12
 
 
 # Entry point of the program
