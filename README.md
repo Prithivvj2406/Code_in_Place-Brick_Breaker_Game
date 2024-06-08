@@ -12,4 +12,4 @@ I have decided to create a simplified version of the Brick Breaker game, which w
 
 The first milestone was to create the game window itself. I decided to include a startup screen for the game after the file is run. I created a canvas window with a size of 800x600, displaying the message "Game Startup Screen". Below is an example of how it would look:
 
-![Milestone_1](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/9f7f1e20-b149-44d8-a45a-f9dfd3e5d832 =400x300)
+[Milestone_1](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/9f7f1e20-b149-44d8-a45a-f9dfd3e5d832 =400x300)
