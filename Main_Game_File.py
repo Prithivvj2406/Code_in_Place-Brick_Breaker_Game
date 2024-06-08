@@ -120,16 +120,13 @@ def ball_dynamics(canvas_element, root):
 
     move_paddle(canvas_element)
 
-    detect_paddle_collision(canvas_element)
-
-    detect_brick_collision(bricks, canvas_element)
+    detect_collisions(canvas_element)
 
     root.after(20, ball_dynamics, canvas_element, root)
 
 
 # Milestone_9: Detection Collisions with Paddle
-def detect_paddle_collision(canvas_element):
-    ball_pos = canvas_element.coords(ball)
+def detect_paddle_collision(ball_pos, canvas_element):
     global change_y
     if canvas_element.find_overlapping(*ball_pos):
         for obj in canvas_element.find_overlapping(*ball_pos):
@@ -138,19 +135,25 @@ def detect_paddle_collision(canvas_element):
 
 
 # Milestone_10_1: Detection Collisions with Bricks
-def detect_brick_collision(bricks, canvas_element):
+def detect_brick_collision(bricks, ball_pos, canvas_element):
     global change_y
-    ball_pos = canvas_element.coords(ball)
     for brick, color in bricks:
         if canvas_element.find_overlapping(*ball_pos) and brick in canvas_element.find_overlapping(*ball_pos):
             change_y = -change_y
             return
 
 
+# Milestone_10_2: Nest the two detection function together
+def detect_collisions(canvas_element):
+    ball_pos = canvas_element.coords(ball)
+    detect_paddle_collision(ball_pos, canvas_element)
+    detect_brick_collision(bricks, ball_pos, canvas_element)
+
+
 # Main function to start the game setup
 def main():
     create_tkinter_window()  # Milestone 1 & 2
-    create_game_window()  # Milestone 3 to 10.1
+    create_game_window()  # Milestone 3 to 10.2
 
 
 # Entry point of the program
