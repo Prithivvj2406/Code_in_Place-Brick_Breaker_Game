@@ -13,6 +13,8 @@ BRICK_WIDTH = WIDTH // BRICK_COLS
 BRICK_HEIGHT = 20
 BRICK_COLORS = ["red", "orange", "yellow", "green", "cyan"]
 BALL_SIZE = 20
+# New Constants
+BALL_SPEED = 4
 
 
 # Milestone 1: Create the Start Screen
@@ -34,11 +36,11 @@ def create_tkinter_window():
 
 # Milestone 3: Create the Game Window
 def create_game_window():
-    global game_canvas  # Declare canvas as a global variable
     root = tk.Tk()  # Create the main game window
     root.title("Brick Breaker Game")
     root.geometry(f"{WIDTH}x{HEIGHT}")  # Position window
 
+    global game_canvas  # Declare canvas as a global variable
     game_canvas = tk.Canvas(root, width=WIDTH, height=HEIGHT, bd=0, highlightthickness=0)
     game_canvas.pack()
 
@@ -46,6 +48,8 @@ def create_game_window():
     create_bricks(game_canvas)
     spawn_ball(game_canvas)
     move_paddle(game_canvas)
+
+    ball_dynamics(game_canvas, root)
 
     # Run the Tkinter event loop for the game window
     root.mainloop()
@@ -77,6 +81,9 @@ def create_bricks(canvas_element):
 
 # Milestone_6 : Create the ball
 def spawn_ball(canvas_element):
+    global ball, change_x, change_y
+    change_x = random.choice([-BALL_SPEED, BALL_SPEED])
+    change_y = BALL_SPEED
     ball = canvas_element.create_oval(WIDTH / 2 - BALL_SIZE / 2, HEIGHT / 2 - BALL_SIZE / 2,
                                       WIDTH / 2 + BALL_SIZE / 2, HEIGHT / 2 + BALL_SIZE / 2,
                                       fill='red')  # Create the ball
@@ -97,10 +104,29 @@ def move_paddle(canvas_element):
     canvas_element.bind("<Motion>", on_mouse_move)
 
 
+# Milestone_8: Ball Movement Dynamics
+def ball_dynamics(canvas_element, root):
+    global change_x, change_y
+    canvas_element.move(ball, change_x, change_y)
+    ball_pos = canvas_element.coords(ball)
+
+    # Collision detection and handling
+    if ball_pos[0] <= 0 or ball_pos[2] >= WIDTH:
+        change_x = -change_x
+    if ball_pos[1] <= 0:
+        change_y = -change_y
+    if ball_pos[3] >= HEIGHT:
+        canvas_element.create_text(WIDTH / 2, HEIGHT / 2, text="Game Over", font=('Helvetica', 30), fill='red')
+        return
+
+    move_paddle(canvas_element)
+    root.after(20, ball_dynamics, canvas_element, root)
+
+
 # Main function to start the game setup
 def main():
     create_tkinter_window()  # Milestone 1 & 2
-    create_game_window()  # Milestone 3 to 7
+    create_game_window()  # Milestone 3 to 8
 
 
 # Entry point of the program
