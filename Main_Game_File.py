@@ -1,5 +1,6 @@
 import tkinter as tk
 import random
+from PIL import Image, ImageTk
 
 # Constants
 WIDTH = 800
@@ -17,44 +18,52 @@ BALL_SIZE = 20
 BRICK_POINTS = [5, 4, 3, 2, 1]
 SCORE = 0
 
+# Store the image reference globally to avoid garbage collection
+global tk_img
 
-# Milestone 1: Create the Start Screen
+# Milestone_1: Create the Start Screen
 def create_tkinter_window():
     root = tk.Tk()  # Create the main application window
     root.title("Brick Breaker Game")  # Set the title of the window
-    root.geometry(f"{WIDTH}x{HEIGHT}")  # Position the window
+    root.geometry(f"{WIDTH}x{HEIGHT}")  # Set the size of the window
+
+    # Create a canvas to draw on
+    canvas = tk.Canvas(root, width=WIDTH, height=HEIGHT)
+    canvas.pack()
+
+    # Insert the game icon image with a border on the canvas
+    insert_image_with_border(canvas, WIDTH, HEIGHT)
 
     # Add an instruction label to the center of the window
-    instruction_label = tk.Label(root, text="CLICK ANYWHERE ON THE SCREEN TO START THE GAME", font=("Helvetica", 16))
-    instruction_label.place(relx=0.5, rely=0.5, anchor="center")
+    instruction_label = tk.Label(root, text="CLICK ANYWHERE ON THE SCREEN TO \n START THE GAME", font=("Helvetica", 16))
+    instruction_label.place(relx=0.5, rely=0.7, anchor="center")
 
-    # Milestone 2: Add click event for closing the screen and opening the game window
+    # Close the start screen and open the game window on mouse click
     root.bind("<Button-1>", lambda event: root.destroy())
 
     # Run the Tkinter event loop
     root.mainloop()
 
 
-# Milestone 3: Create the Game Window
+# Milestone_3: Create the Game Window
 def create_game_window():
     root = tk.Tk()  # Create the main game window
-    root.title("Brick Breaker Game")
-    root.geometry(f"{WIDTH}x{HEIGHT}")  # Position window
+    root.title("Brick Breaker Game")  # Set the title of the window
+    root.geometry(f"{WIDTH}x{HEIGHT}")  # Set the size of the window
 
-    global game_canvas  # Declare canvas as a global variable
+    global game_canvas  # Declare the canvas as a global variable
     game_canvas = tk.Canvas(root, width=WIDTH, height=HEIGHT, bd=0, highlightthickness=0)
     game_canvas.pack()
 
-    create_paddle(game_canvas)
-    create_bricks(game_canvas)
-    spawn_ball(game_canvas)
-    move_paddle(game_canvas)
+    create_paddle(game_canvas)  # Create the paddle
+    create_bricks(game_canvas)  # Create the bricks
+    spawn_ball(game_canvas)  # Spawn the ball
+    move_paddle(game_canvas)  # Enable paddle movement
 
     global num_bricks
+    num_bricks = BRICK_ROWS * BRICK_COLS  # Total number of bricks
 
-    num_bricks = BRICK_ROWS * BRICK_COLS
-
-    ball_dynamics(game_canvas, root)
+    ball_dynamics(game_canvas, root)  # Start the ball dynamics
 
     # Run the Tkinter event loop for the game window
     root.mainloop()
@@ -62,12 +71,12 @@ def create_game_window():
 
 # Milestone_4: Create the Paddle
 def create_paddle(canvas_element):
-    global paddle  # Declare paddle as a global variable
+    global paddle  # Declare the paddle as a global variable
     paddle = canvas_element.create_rectangle(WIDTH / 2 - PADDLE_WIDTH / 2, HEIGHT - PADDLE_HEIGHT - PADDLE_Y_OFFSET,
                                              WIDTH / 2 + PADDLE_WIDTH / 2, HEIGHT - PADDLE_Y_OFFSET, fill='blue')
 
 
-# Milestone_5 :  Create the multicolored Bricks
+# Milestone_5: Create the Multicolored Bricks
 def create_bricks(canvas_element):
     global bricks
     bricks = []
@@ -77,21 +86,20 @@ def create_bricks(canvas_element):
             y1 = i * BRICK_HEIGHT
             x2 = x1 + BRICK_WIDTH
             y2 = y1 + BRICK_HEIGHT
-            color = BRICK_COLORS[i % len(BRICK_COLORS)]  # Corrected this line
+            color = BRICK_COLORS[i % len(BRICK_COLORS)]  # Cycle through colors
 
-            # Create brick on canvas
+            # Create a brick on the canvas
             brick = canvas_element.create_rectangle(x1, y1, x2, y2, fill=color, outline='black')
             bricks.append((brick, color))  # Store brick and its color
 
 
-# Milestone_6 : Create the ball
+# Milestone_6: Create the Ball
 def spawn_ball(canvas_element):
     global ball, change_x, change_y
     change_x = random.choice([-BALL_SPEED, BALL_SPEED])
     change_y = BALL_SPEED
     ball = canvas_element.create_oval(WIDTH / 2 - BALL_SIZE / 2, HEIGHT / 2 - BALL_SIZE / 2,
-                                      WIDTH / 2 + BALL_SIZE / 2, HEIGHT / 2 + BALL_SIZE / 2,
-                                      fill='red')  # Create the ball
+                                      WIDTH / 2 + BALL_SIZE / 2, HEIGHT / 2 + BALL_SIZE / 2, fill='red')
 
 
 # Milestone_7: Move the Paddle
@@ -154,6 +162,7 @@ def detect_brick_collision(bricks, ball_pos, canvas_element):
             return
 
 
+# Handle Brick Collision
 def handle_brick_collision(brick, color, canvas_element):
     global change_x, change_y, SCORE
     canvas_element.delete(brick)
@@ -162,7 +171,7 @@ def handle_brick_collision(brick, color, canvas_element):
     brick_index = BRICK_COLORS.index(color)
     score_increment = BRICK_POINTS[brick_index]
     update_score(score_increment, color, canvas_element)
-    check_win(canvas_element, SCORE)  # Milestone_12
+    check_win(canvas_element, SCORE) # Milestone_12
 
 
 # Milestone_11: Score Tracking
@@ -199,10 +208,38 @@ def check_win(canvas_element, score):
                                    fill='green')
 
 
+# Milestone_13: Insert Game Icon with Border
+def insert_image_with_border(canvas, canvas_width, canvas_height, image_size=250, border_thickness=5):
+    # Open the image
+    image = Image.open("Game_Icon_Image.PNG")
+
+    # Resize the image to the specified size
+    resized_image = image.resize((image_size, image_size))
+    tk_img = ImageTk.PhotoImage(resized_image)
+
+    # Calculate coordinates to place the image
+    x_center = (canvas_width - image_size) // 2
+    y_center = (canvas_height - image_size - 200) // 2
+
+    # Create a border for the Game Icon
+    border_color = "#add8e6"
+    canvas.create_rectangle(
+        x_center - border_thickness, y_center - border_thickness,
+        x_center + image_size + border_thickness, y_center + image_size + border_thickness,
+        outline=border_color, width=border_thickness
+    )
+
+    # Place the image in the center of the canvas
+    canvas.create_image(x_center, y_center, anchor=tk.NW, image=tk_img)
+
+    # Keep a reference to the image to prevent it from being garbage collected
+    canvas.image = tk_img
+
+
 # Main function to start the game setup
 def main():
     create_tkinter_window()  # Milestone 1 & 2
-    create_game_window()  # Milestone 3 to 12
+    create_game_window()  # Milestone 3 to 13
 
 
 # Entry point of the program
