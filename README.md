@@ -125,6 +125,6 @@ I created a game icon for the startup screen to enhance its appearance. Using Py
 
 Below is an illustration of the current game window:
 
-![Milestone_13](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/6bdab9a2-b219-42a7-8823-605ebf27fb2b)
+![Milestone_13](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/f6e730e7-e958-41ce-b5eb-fb7f183ea01f)
 
 You can watch a gameplay video demonstrating the win condition of the complete game, including the startup game icon, through the following embedded video:
