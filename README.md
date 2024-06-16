@@ -115,6 +115,16 @@ Please note that the score tracking continues even if the player loses the game.
 
 ![Milestone_12_2_Lose_Message](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/6c45adc7-aee5-4e15-91c8-6284f262456c)
 
-You can watch the gameplay video demonstrating the win condition of the complete game through the following link:
+You can watch the gameplay video demonstrating the win condition of the complete game through the following embedded video:
 
 [Gameplay Video - Win Condition](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/dbf47fe0-3c50-4055-b8ff-4565d7dc4a5b)
+
+### Milestone 13: Game Icon Implementation
+
+I created a game icon for the startup screen to enhance its appearance. Using Python's PIL library, I processed the image and positioned it correctly in the canvas window.
+
+Below is an illustration of the current game window:
+
+![Milestone_13](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/cc197988-8506-4328-ba31-ee542bf482a7)
+
+You can watch a gameplay video demonstrating the win condition of the complete game, including the startup game icon, through the following embedded video:
