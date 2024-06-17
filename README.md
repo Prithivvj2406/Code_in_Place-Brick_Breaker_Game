@@ -139,8 +139,12 @@ Below is an illustration of the current game window:
 
 You can watch a gameplay video demonstrating the win condition of the complete game, including the startup game icon, through the following embedded video:
 
-[![Gameplay Video - Game Icon Demo]](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/47de15c5-9c8d-47f2-b7bd-48a6f6bd6d34)
+[![Gameplay Video - Game Icon Milestone Demo]](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/47de15c5-9c8d-47f2-b7bd-48a6f6bd6d34)
 
 ## Game Demo
 
 Watch the complete gameplay video below, which demonstrates various scenarios, including wins, losses, and score tracking:
+
+![Gameplay Video - Game Demo](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/79a20a09-a135-49db-9ae3-8ef846a22b89)
+
+[Watch on YouTube](https://youtu.be/EbqWmH6yqHI)
