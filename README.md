@@ -107,11 +107,11 @@ The points associated with each brick color are displayed in the table below:
 
 | Brick Color | Points |
 |-------------|--------|
-| <span style="color:red;">Red</span>         | 5      |
-| <span style="color:orange;">Orange</span>      | 4      |
-| <span style="color:yellow;">Yellow</span>      | 3      |
-| <span style="color:green;">Green</span>       | 2      |
-| <span style="color:cyan;">Cyan</span>        | 1      |
+| ${\color{red}Red}$        | 5      |
+| ${\color{orange}Orange}$  | 4      |
+| ${\color{gold}Yellow}$    | 3      |
+| ${\color{green}Green}$    | 2      |
+| ${\color{cyan}Cyan}$      | 1      |
 
 ### Milestone 12: Implementing Win Condition
 
