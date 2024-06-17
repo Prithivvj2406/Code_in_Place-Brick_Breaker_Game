@@ -103,6 +103,16 @@ Below is a visualization of the score tracking feature:
 
 ![Milestone_11](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/bb731fb7-5160-4759-a1de-3653d9af268a)
 
+The points associated with each brick color are displayed in the table below:
+
+| Brick Color | Points |
+|-------------|--------|
+| <span style="color:red;">Red</span>         | 5      |
+| <span style="color:orange;">Orange</span>      | 4      |
+| <span style="color:yellow;">Yellow</span>      | 3      |
+| <span style="color:green;">Green</span>       | 2      |
+| <span style="color:cyan;">Cyan</span>        | 1      |
+
 ### Milestone 12: Implementing Win Condition
 
 In Milestone 12, I added code to determine if the player has won the game by destroying all the bricks. Upon destroying all bricks, a win message is displayed on the screen along with the player's score.
@@ -128,3 +138,5 @@ Below is an illustration of the current game window:
 ![Milestone_13](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/f6e730e7-e958-41ce-b5eb-fb7f183ea01f)
 
 You can watch a gameplay video demonstrating the win condition of the complete game, including the startup game icon, through the following embedded video:
+
+[![Gameplay Video - Game Icon Demo]](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/47de15c5-9c8d-47f2-b7bd-48a6f6bd6d34)
