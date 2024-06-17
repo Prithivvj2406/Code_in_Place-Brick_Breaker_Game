@@ -105,7 +105,7 @@ Below is a visualization of the score tracking feature:
 
 The points associated with each brick color are displayed in the table below:
 
-| Brick Color | Points |
+| **Brick Color** | **Points** |
 |-------------|--------|
 | ${\color{red}Red}$        | 5      |
 | ${\color{orange}Orange}$  | 4      |
