@@ -145,6 +145,6 @@ You can watch a gameplay video demonstrating the win condition of the complete g
 
 Watch the complete gameplay video below, which demonstrates various scenarios, including wins, losses, and score tracking:
 
-![Gameplay Video - Game Demo](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/79a20a09-a135-49db-9ae3-8ef846a22b89)
+[![Gameplay Video - Game Demo]](https://github.com/Prithivvj2406/Code_in_Place-Brick_Breaker_Game/assets/159470988/08fceb56-2390-47f2-8d4a-b65627337f7c)
 
 [Watch on YouTube](https://youtu.be/EbqWmH6yqHI)
